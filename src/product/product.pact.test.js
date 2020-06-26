@@ -46,9 +46,12 @@ describe("Pact Verification", () => {
             ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1", "green")]
         ]);
       },
-      "a product with ID 11 does not exist": () => {
-        controller.repository.products = new Map();
-      }
+      "products exist": () => {
+        controller.repository.products = new Map([
+          ["09", new Product("09", "CREDIT_CARD", "Gem Visa", "v1", "blue")],
+          ["10", new Product("10", "CREDIT_CARD", "28 Degrees", "v1", "yellow")]
+        ]);
+      },
     }
 
     const requestFilter = (req, res, next) => {
